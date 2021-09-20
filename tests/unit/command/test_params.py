@@ -26,7 +26,10 @@ def test_params_diff(dvc, mocker):
     assert cmd.run() == 0
 
     m.assert_called_once_with(
-        cmd.repo, a_rev="HEAD~10", b_rev="HEAD~1", all=True,
+        cmd.repo,
+        a_rev="HEAD~10",
+        b_rev="HEAD~1",
+        all=True,
     )
 
 

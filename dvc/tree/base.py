@@ -600,7 +600,10 @@ class BaseTree:
                 )
 
             with ThreadPoolExecutor(max_workers=jobs or self.JOBS) as executor:
-                in_remote = executor.map(list_with_update, traverse_prefixes,)
+                in_remote = executor.map(
+                    list_with_update,
+                    traverse_prefixes,
+                )
                 yield from itertools.chain.from_iterable(in_remote)
 
     def list_hashes_exists(self, hashes, jobs=None, name=None):

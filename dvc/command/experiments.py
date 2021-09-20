@@ -234,7 +234,11 @@ def _show_experiments(all_experiments, console, **kwargs):
             base_rev = base_rev[:7]
 
         for row, _, in _collect_rows(
-            base_rev, experiments, metric_names, param_names, **kwargs,
+            base_rev,
+            experiments,
+            metric_names,
+            param_names,
+            **kwargs,
         ):
             table.add_row(*row)
 
@@ -490,7 +494,8 @@ def add_parser(subparsers, parent_parser):
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
     experiments_checkout_parser.add_argument(
-        "experiment", help="Checkout this experiment.",
+        "experiment",
+        help="Checkout this experiment.",
     )
     experiments_checkout_parser.set_defaults(func=CmdExperimentsCheckout)
 

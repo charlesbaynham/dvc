@@ -34,6 +34,8 @@ def add_parser(subparsers, parent_parser):
         "url", help="See `dvc import-url -h` for full list of supported URLs."
     )
     get_parser.add_argument(
-        "out", nargs="?", help="Destination path to put data to.",
+        "out",
+        nargs="?",
+        help="Destination path to put data to.",
     ).complete = completion.DIR
     get_parser.set_defaults(func=CmdGetUrl)

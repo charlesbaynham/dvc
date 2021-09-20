@@ -270,7 +270,9 @@ class TestRunBadWdir(TestDvc):
             path = os.path.join(path, str(uuid.uuid4()))
             open(path, "a").close()
             self.dvc.run(
-                cmd="command", wdir=path, single_stage=True,
+                cmd="command",
+                wdir=path,
+                single_stage=True,
             )
 
 
@@ -634,7 +636,9 @@ class TestCmdRunWorkingDirectory(TestDvc):
         self.assertNotIn(Stage.PARAM_WDIR, d.keys())
 
         stage = self.dvc.run(
-            cmd=f"echo test > {self.BAR}", outs=[self.BAR], single_stage=True,
+            cmd=f"echo test > {self.BAR}",
+            outs=[self.BAR],
+            single_stage=True,
         )
         d = load_yaml(stage.relpath)
         self.assertNotIn(Stage.PARAM_WDIR, d.keys())
@@ -832,7 +836,8 @@ class TestShouldRaiseOnOverlappingOutputPaths(TestDvc):
 
         self.assertIn("Paths for outs:\n", error_output)
         self.assertIn(
-            f"\n'{self.DATA_DIR}'('{data_dir_stage}')\n", error_output,
+            f"\n'{self.DATA_DIR}'('{data_dir_stage}')\n",
+            error_output,
         )
         self.assertIn(f"\n'{self.DATA}'('{data_stage}')\n", error_output)
         self.assertIn(
@@ -993,7 +998,8 @@ def test_should_raise_on_stage_output(tmp_dir, dvc, run_copy):
 
 
 @pytest.mark.parametrize(
-    "metrics_type", ["metrics", "metrics_no_cache"],
+    "metrics_type",
+    ["metrics", "metrics_no_cache"],
 )
 def test_metrics_dir(tmp_dir, dvc, caplog, run_copy_metrics, metrics_type):
     copyargs = {metrics_type: ["dir_metric"]}

@@ -121,14 +121,14 @@ class S3Tree(BaseTree):
         # Keys for extra_args can be one of the following list:
         # https://boto3.amazonaws.com/v1/documentation/api/latest/reference/customizations/s3.html#boto3.s3.transfer.S3Transfer.ALLOWED_UPLOAD_ARGS
         """
-          ALLOWED_UPLOAD_ARGS = [
-            'ACL', 'CacheControl', 'ContentDisposition', 'ContentEncoding',
-            'ContentLanguage', 'ContentType', 'Expires', 'GrantFullControl',
-            'GrantRead', 'GrantReadACP', 'GrantWriteACP', 'Metadata',
-            'RequestPayer', 'ServerSideEncryption', 'StorageClass',
-            'SSECustomerAlgorithm', 'SSECustomerKey', 'SSECustomerKeyMD5',
-            'SSEKMSKeyId', 'WebsiteRedirectLocation'
-          ]
+        ALLOWED_UPLOAD_ARGS = [
+          'ACL', 'CacheControl', 'ContentDisposition', 'ContentEncoding',
+          'ContentLanguage', 'ContentType', 'Expires', 'GrantFullControl',
+          'GrantRead', 'GrantReadACP', 'GrantWriteACP', 'Metadata',
+          'RequestPayer', 'ServerSideEncryption', 'StorageClass',
+          'SSECustomerAlgorithm', 'SSECustomerKey', 'SSECustomerKeyMD5',
+          'SSEKMSKeyId', 'WebsiteRedirectLocation'
+        ]
         """
 
         grants = {
@@ -342,7 +342,9 @@ class S3Tree(BaseTree):
                 disable=no_progress_bar, total=total, bytes=True, desc=name
             ) as pbar:
                 obj.upload_file(
-                    from_file, Callback=pbar.update, ExtraArgs=self.extra_args,
+                    from_file,
+                    Callback=pbar.update,
+                    ExtraArgs=self.extra_args,
                 )
 
     def _download(self, from_info, to_file, name=None, no_progress_bar=False):

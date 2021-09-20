@@ -101,7 +101,9 @@ def add_parser(subparsers, parent_parser):
         metavar="<path>",
     )
     run_parser.add_argument(
-        "-n", "--name", help="Stage name.",
+        "-n",
+        "--name",
+        help="Stage name.",
     )
     run_parser.add_argument(
         "-o",
@@ -159,7 +161,9 @@ def add_parser(subparsers, parent_parser):
         metavar="<path>",
     )
     run_parser.add_argument(
-        "--file", metavar="<filename>", help=argparse.SUPPRESS,
+        "--file",
+        metavar="<filename>",
+        help=argparse.SUPPRESS,
     )
     run_parser.add_argument(
         "-w",

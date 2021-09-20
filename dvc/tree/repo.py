@@ -254,8 +254,8 @@ class RepoTree(BaseTree):  # pylint:disable=abstract-method
     def _subrepo_walk(self, dir_path, **kwargs):
         """Walk into a new repo.
 
-         NOTE: subrepo will only be discovered when walking if
-         ignore_subrepos is set to False.
+        NOTE: subrepo will only be discovered when walking if
+        ignore_subrepos is set to False.
         """
         tree, dvc_tree = self._get_tree_pair(dir_path)
         tree_walk = tree.walk(

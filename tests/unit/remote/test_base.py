@@ -33,7 +33,9 @@ def test_cmd_error(dvc):
     err = "sed: expression #1, char 2: extra characters after command"
 
     with mock.patch.object(
-        BaseTree, "remove", side_effect=RemoteCmdError("base", cmd, ret, err),
+        BaseTree,
+        "remove",
+        side_effect=RemoteCmdError("base", cmd, ret, err),
     ):
         with pytest.raises(RemoteCmdError):
             BaseTree(dvc, config).remove("file")
@@ -95,10 +97,14 @@ def test_hashes_exist(object_exists, traverse, dvc):
 
 
 @mock.patch.object(
-    BaseTree, "list_hashes", return_value=[],
+    BaseTree,
+    "list_hashes",
+    return_value=[],
 )
 @mock.patch.object(
-    BaseTree, "path_to_hash", side_effect=lambda x: x,
+    BaseTree,
+    "path_to_hash",
+    side_effect=lambda x: x,
 )
 def test_list_hashes_traverse(_path_to_hash, list_hashes, dvc):
     tree = BaseTree(dvc, {})

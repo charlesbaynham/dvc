@@ -97,7 +97,8 @@ class StaticFileServer:
 
         self._lock.acquire()
         self._httpd = HTTPServer(
-            ("localhost", 0), partial(TestRequestHandler, directory=directory),
+            ("localhost", 0),
+            partial(TestRequestHandler, directory=directory),
         )
         self._thread = None
 

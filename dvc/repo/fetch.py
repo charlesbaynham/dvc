@@ -59,7 +59,10 @@ def fetch(
 
     try:
         downloaded += self.cloud.pull(
-            used, jobs, remote=remote, show_checksums=show_checksums,
+            used,
+            jobs,
+            remote=remote,
+            show_checksums=show_checksums,
         )
     except NoRemoteError:
         if not used.external and used["local"]:

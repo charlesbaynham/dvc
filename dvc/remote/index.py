@@ -130,7 +130,8 @@ class RemoteIndex:
                 logger.error(
                     "Index file version '{}' will be reformatted "
                     "to the current version '{}'.".format(
-                        version, self.VERSION,
+                        version,
+                        self.VERSION,
                     )
                 )
                 cmd = "DROP TABLE IF EXISTS {};"

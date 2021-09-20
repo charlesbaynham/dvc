@@ -240,11 +240,15 @@ def test_collect_granular_with_deps(tmp_dir, dvc, stages):
         stages["copy-foo-bar"],
         stages["foo-generate"],
     }
-    assert set(
-        map(
-            itemgetter(0), dvc.collect_granular(PIPELINE_FILE, with_deps=True),
+    assert (
+        set(
+            map(
+                itemgetter(0),
+                dvc.collect_granular(PIPELINE_FILE, with_deps=True),
+            )
         )
-    ) == set(stages.values())
+        == set(stages.values())
+    )
 
 
 def test_collect_granular_same_output_name_stage_name(tmp_dir, dvc, run_copy):

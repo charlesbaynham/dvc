@@ -134,7 +134,8 @@ class GDriveTree(BaseTree):
             else config.get(
                 "gdrive_user_credentials_file",
                 os.path.join(
-                    self.repo.tmp_dir, self.DEFAULT_USER_CREDENTIALS_FILE,
+                    self.repo.tmp_dir,
+                    self.DEFAULT_USER_CREDENTIALS_FILE,
                 ),
             )
         )

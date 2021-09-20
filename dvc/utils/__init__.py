@@ -43,7 +43,7 @@ def _fobj_md5(fobj, hash_md5, binary, progress_func=None):
 
 
 def file_md5(fname, tree=None):
-    """ get the (md5 hexdigest, md5 digest) of a file """
+    """get the (md5 hexdigest, md5 digest) of a file"""
     from dvc.istextfile import istextfile
     from dvc.progress import Tqdm
 
@@ -228,7 +228,7 @@ def fix_env(env=None):
 
 
 def tmp_fname(fname):
-    """ Temporary name for a partial download """
+    """Temporary name for a partial download"""
     return os.fspath(fname) + "." + uuid() + ".tmp"
 
 

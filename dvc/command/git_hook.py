@@ -106,7 +106,9 @@ def add_parser(subparsers, parent_parser):
         help=PRE_COMMIT_HELP,
     )
     pre_commit_parser.add_argument(
-        "args", nargs="*", help="Arguments passed by GIT or pre-commit tool.",
+        "args",
+        nargs="*",
+        help="Arguments passed by GIT or pre-commit tool.",
     )
     pre_commit_parser.set_defaults(func=CmdPreCommit)
 
@@ -118,7 +120,9 @@ def add_parser(subparsers, parent_parser):
         help=POST_CHECKOUT_HELP,
     )
     post_checkout_parser.add_argument(
-        "args", nargs="*", help="Arguments passed by GIT or pre-commit tool.",
+        "args",
+        nargs="*",
+        help="Arguments passed by GIT or pre-commit tool.",
     )
     post_checkout_parser.set_defaults(func=CmdPostCheckout)
 
@@ -130,7 +134,9 @@ def add_parser(subparsers, parent_parser):
         help=PRE_PUSH_HELP,
     )
     pre_push_parser.add_argument(
-        "args", nargs="*", help="Arguments passed by GIT or pre-commit tool.",
+        "args",
+        nargs="*",
+        help="Arguments passed by GIT or pre-commit tool.",
     )
     pre_push_parser.set_defaults(func=CmdPrePush)
 
