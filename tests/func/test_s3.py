@@ -14,8 +14,8 @@ REDUCED_PART_SIZE = 256
 
 
 def reduced_min_part_size(f):
-    """ speed up tests by temporarily making the multipart minimum part size
-        small
+    """speed up tests by temporarily making the multipart minimum part size
+    small
     """
     orig_size = s3model.UPLOAD_PART_MIN_SIZE
 

@@ -44,7 +44,8 @@ def test_walk_onerror(tmp_dir, scm):
         raise exc
 
     tmp_dir.scm_gen(
-        {"foo": "foo"}, commit="init",
+        {"foo": "foo"},
+        commit="init",
     )
     tree = scm.get_tree("HEAD")
 

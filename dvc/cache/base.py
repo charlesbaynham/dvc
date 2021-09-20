@@ -193,7 +193,10 @@ class CloudCache:
         link_method(from_info, to_info)
 
         logger.debug(
-            "Created '%s': %s -> %s", self.cache_types[0], from_info, to_info,
+            "Created '%s': %s -> %s",
+            self.cache_types[0],
+            from_info,
+            to_info,
         )
 
     def _save_file(self, path_info, tree, hash_info, save_link=True, **kwargs):

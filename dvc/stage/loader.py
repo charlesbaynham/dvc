@@ -86,7 +86,9 @@ class StageLoader(Mapping):
 
         if not self.lockfile_data.get(name):
             logger.debug(
-                "No lock entry found for '%s:%s'", self.dvcfile.relpath, name,
+                "No lock entry found for '%s:%s'",
+                self.dvcfile.relpath,
+                name,
             )
 
         return self.load_stage(

@@ -64,7 +64,11 @@ class CmdDAG(CmdBase):
                     return 1
                 target = stages[0]
 
-            G = _build(self.repo.graph, target=target, full=self.args.full,)
+            G = _build(
+                self.repo.graph,
+                target=target,
+                full=self.args.full,
+            )
 
             if self.args.dot:
                 logger.info(_show_dot(G))

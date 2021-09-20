@@ -34,7 +34,8 @@ class OutputDuplicationError(DvcException):
             )
         else:
             msg = "output '{}' is already specified in stages:\n{}".format(
-                output, "\n".join(f"\t- {s.addressing}" for s in stages),
+                output,
+                "\n".join(f"\t- {s.addressing}" for s in stages),
             )
         super().__init__(msg)
         self.stages = stages
@@ -258,7 +259,8 @@ class CheckoutError(DvcException):
         m = (
             "Checkout failed for following targets:\n{}\nIs your "
             "cache up to date?\n{}".format(
-                "\n".join(targets), error_link("missing-files"),
+                "\n".join(targets),
+                error_link("missing-files"),
             )
         )
         super().__init__(m)

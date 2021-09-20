@@ -250,7 +250,10 @@ class Config(dict):
     CONFIG_LOCAL = "config.local"
 
     def __init__(
-        self, dvc_dir=None, validate=True, tree=None,
+        self,
+        dvc_dir=None,
+        validate=True,
+        tree=None,
     ):  # pylint: disable=super-init-not-called
         from dvc.tree.local import LocalTree
 

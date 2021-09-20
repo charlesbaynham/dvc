@@ -491,7 +491,8 @@ class BaseOutput:
             return ret
 
         ret.add_child_cache(
-            self.hash_info.value, self.collect_used_dir_cache(**kwargs),
+            self.hash_info.value,
+            self.collect_used_dir_cache(**kwargs),
         )
 
         return ret

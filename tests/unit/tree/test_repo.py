@@ -220,7 +220,8 @@ def test_walk_dirty(tmp_dir, dvc):
 
 def test_walk_dirty_cached_dir(tmp_dir, scm, dvc):
     tmp_dir.dvc_gen(
-        {"data": {"foo": "foo", "bar": "bar"}}, commit="add data",
+        {"data": {"foo": "foo", "bar": "bar"}},
+        commit="add data",
     )
     (tmp_dir / "data" / "foo").unlink()
 
@@ -482,7 +483,8 @@ def test_get_hash_cached_file(tmp_dir, dvc, mocker):
     tree = RepoTree(dvc)
     dvc_tree_spy = mocker.spy(tree._dvctrees[dvc.root_dir], "get_file_hash")
     assert tree.get_hash(PathInfo(tmp_dir) / "foo") == HashInfo(
-        "md5", "acbd18db4cc2f85cedef654fccc4a4d8",
+        "md5",
+        "acbd18db4cc2f85cedef654fccc4a4d8",
     )
     assert dvc_tree_spy.called
 
@@ -496,7 +498,8 @@ def test_get_hash_cached_dir(tmp_dir, dvc, mocker):
     dvc_tree_spy = mocker.spy(tree._dvctrees[dvc.root_dir], "get_dir_hash")
     with dvc.state:
         assert tree.get_hash(PathInfo(tmp_dir) / "dir") == HashInfo(
-            "md5", "8761c4e9acad696bee718615e23e22db.dir",
+            "md5",
+            "8761c4e9acad696bee718615e23e22db.dir",
         )
     assert get_file_hash_spy.called
     assert not dvc_tree_spy.called
@@ -505,7 +508,8 @@ def test_get_hash_cached_dir(tmp_dir, dvc, mocker):
     shutil.rmtree(tmp_dir / "dir")
     with dvc.state:
         assert tree.get_hash(PathInfo(tmp_dir) / "dir") == HashInfo(
-            "md5", "8761c4e9acad696bee718615e23e22db.dir",
+            "md5",
+            "8761c4e9acad696bee718615e23e22db.dir",
         )
     assert not get_file_hash_spy.called
     assert dvc_tree_spy.called
@@ -520,10 +524,12 @@ def test_get_hash_cached_granular(tmp_dir, dvc, mocker):
     subdir = PathInfo(tmp_dir) / "dir" / "subdir"
     with dvc.state:
         assert tree.get_hash(subdir) == HashInfo(
-            "md5", "af314506f1622d107e0ed3f14ec1a3b5.dir",
+            "md5",
+            "af314506f1622d107e0ed3f14ec1a3b5.dir",
         )
         assert tree.get_hash(subdir / "data") == HashInfo(
-            "md5", "8d777f385d3dfec8815d20f7496026dc",
+            "md5",
+            "8d777f385d3dfec8815d20f7496026dc",
         )
     assert dvc_tree_spy.called
 

@@ -13,5 +13,7 @@ def test_update(dvc, mocker):
     assert cmd.run() == 0
 
     m.assert_called_once_with(
-        targets=["target1", "target2"], rev="REV", recursive=True,
+        targets=["target1", "target2"],
+        rev="REV",
+        recursive=True,
     )

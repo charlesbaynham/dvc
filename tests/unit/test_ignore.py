@@ -116,7 +116,11 @@ def mock_dvcignore(dvcignore_path, patterns):
         # same as pattern "foo".
         # "**/foo/bar" matches file or directory "bar" anywhere that is
         # directly under directory "foo".
-        (os.path.join("rel", "p", "p2", "to_ignore"), ["**/to_ignore"], True,),
+        (
+            os.path.join("rel", "p", "p2", "to_ignore"),
+            ["**/to_ignore"],
+            True,
+        ),
         (
             os.path.join("rel", "p", "p2", "to_ignore"),
             ["**/p2/to_ignore"],
@@ -130,8 +134,16 @@ def mock_dvcignore(dvcignore_path, patterns):
         # A trailing "/**" matches everything inside.
         # For example, "abc/**" matches all files inside directory "abc",
         # relative to the location of the .gitignore file, with infinite depth.
-        (os.path.join("rel", "p", "p2", "to_ignore"), ["rel/**"], True,),
-        (os.path.join("rel", "p", "p2", "to_ignore"), ["p/**"], False,),
+        (
+            os.path.join("rel", "p", "p2", "to_ignore"),
+            ["rel/**"],
+            True,
+        ),
+        (
+            os.path.join("rel", "p", "p2", "to_ignore"),
+            ["p/**"],
+            False,
+        ),
         (
             os.path.join("rel", "path", "path2", "dont_ignore"),
             ["rel/**"],
@@ -140,7 +152,11 @@ def mock_dvcignore(dvcignore_path, patterns):
         # A slash followed by two consecutive asterisks then a slash matches
         # zero or more directories.
         # For example, "a/**/b" matches "a/b", "a/x/b", "a/x/y/b" and so on.
-        (os.path.join("rel", "p", "to_ignore"), ["rel/**/to_ignore"], True,),
+        (
+            os.path.join("rel", "p", "to_ignore"),
+            ["rel/**/to_ignore"],
+            True,
+        ),
         (
             os.path.join("rel", "p", "p2", "to_ignore"),
             ["rel/**/to_ignore"],

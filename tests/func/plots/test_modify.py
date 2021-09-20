@@ -66,5 +66,6 @@ def test_unset_nonexistent(tmp_dir, dvc, run_copy_metrics, custom_template):
 
     with pytest.raises(PropsNotFoundError):
         dvc.plots.modify(
-            "metric.json", unset=["nonexistent"],
+            "metric.json",
+            unset=["nonexistent"],
         )
